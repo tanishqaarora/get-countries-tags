@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries Tags</title>
+
+</head>
+    <br><br>
+    <table id="table-tag" border='1px' cellspacing='0' cell-padding='15' width="20%" >
+
+            <% for (let i = 0; i < 3; i++) { %>
+            <tr>
+                <% for (let j = 0; j < 3; j++) { %>
+                    <td><%= outcome[i][j] %></td>   
+                <% } %>
+            </tr>
+            <% } %>
+    </table>
+    
+    <% if(Object.keys(rank).length === 0) { %>
+        <p>Ranks:</p>
+        <p>Note: Rank is empty because no consecutive occurence.</p>
+    <% } else { %>
+        <% let str = ""; %>
+        <% for (const country in rank) { %>
+        <% str = str + `${country.slice(0, country.length-1)} = ${rank[country]} |` + " "; %>
+        <% } %>
+        <p>Ranks: <%= str.slice(0, str.length-2) %> </p>
+    <% } %>
+    
+<body>
